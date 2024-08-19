@@ -48,7 +48,8 @@ let self = stdenv.mkDerivation rec {
     # to build a .dll on windows, we need --disable-static + --enable-shared
     # see https://gmplib.org/manual/Notes-for-Particular-Systems.html
     ++ optional (!withStatic && stdenv.hostPlatform.isWindows) "--disable-static --enable-shared"
-    ++ optional (stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isAarch64) "--disable-assembly";
+    ++ optional (stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isAarch64) "--disable-assembly"
+    ++ optional (stdenv.isAarch64 && stdenv.isDarwin) "CPPFLAGS=-Wno-bitwise-instead-of-logical";
 
   doCheck = true; # not cross;
 
