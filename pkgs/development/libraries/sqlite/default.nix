@@ -24,7 +24,6 @@ stdenv.mkDerivation rec {
     hash = "sha256-6YwQDdHaTjD6Rgdh2rfAuRpQt4XhZ/jFesxGUU+ulJk=";
   };
 
-  outputs = [ "bin" "dev" "out" ];
   separateDebugInfo = stdenv.isLinux;
 
   buildInputs = [ zlib ] ++ lib.optionals interactive [ readline ncurses ];
