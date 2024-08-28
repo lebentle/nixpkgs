@@ -16,8 +16,6 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-Ta5v3NK7C7bDe1+Xwzwr6VTadDmFNpzdrDVG4yGL/7g=";
   };
 
-  outputs = [ "bin" "dev" "out" "doc" "man" ];
-
   # Disable jit on Apple Silicon, https://github.com/zherczeg/sljit/issues/51
   configureFlags = lib.optional (!(stdenv.hostPlatform.isDarwin && stdenv.hostPlatform.isAarch64)) "--enable-jit=auto" ++ [
     "--enable-unicode-properties"
