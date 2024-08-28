@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
     # we are running out of stack on both freeBSDs on Hydra
 
   postFixup = ''
-    moveToOutput bin/pcre-config "$dev"
+    moveToOutput bin/pcre-config "$out"
   '' + lib.optionalString (variant != null) ''
     ln -sf -t "$out/lib/" '${pcre.out}'/lib/libpcre{,posix}.{so.*.*.*,*dylib,*a}
   '';
