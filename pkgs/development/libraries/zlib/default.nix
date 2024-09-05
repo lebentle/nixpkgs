@@ -82,7 +82,7 @@ stdenv.mkDerivation (finalAttrs: {
   # but we don't do it simply to avoid mass rebuilds.
 
   postInstall = lib.optionalString splitStaticOutput ''
-    moveToOutput lib/libz.a "$static"
+    moveToOutput lib/libz.a "$out"
   ''
     # jww (2015-01-06): Sometimes this library install as a .so, even on
     # Darwin; others time it installs as a .dylib.  I haven't yet figured out
@@ -109,7 +109,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   installFlags = lib.optionals stdenv.hostPlatform.isMinGW [
     "BINARY_PATH=$(out)/bin"
-    "INCLUDE_PATH=$(dev)/include"
+    "INCLUDE_PATH=$(out)/include"
     "LIBRARY_PATH=$(out)/lib"
   ];
 
