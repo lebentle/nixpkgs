@@ -146,7 +146,7 @@ stdenv.mkDerivation (rec {
     # included with the distribution
     cat > ./cpan/Compress-Raw-Zlib/config.in <<EOF
     BUILD_ZLIB   = False
-    INCLUDE      = ${zlib.dev}/include
+    INCLUDE      = ${zlib.out}/include
     LIB          = ${zlib.out}/lib
     OLD_ZLIB     = False
     GZIP_OS_CODE = AUTO_DETECT
