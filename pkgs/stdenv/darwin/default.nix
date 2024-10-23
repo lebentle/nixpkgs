@@ -719,7 +719,6 @@ rec {
         bzip2.out
         bzip2.bin
         zlib.out
-        zlib.dev
         libffi.out
         coreutils
         ed
